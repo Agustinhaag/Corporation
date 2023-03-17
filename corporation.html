@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Css/corporation.css">
+    <link rel="shortcut icon" href="/Img/icon.png">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logoimg">
+            <img src="/Img/logo.jpg" alt="">
+             <h2 class="logo">HAAG-CORPORATION</h2>
+        </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="mostrar">&#8801</label> 
+        <nav class="menu " id="menu">
+            <a href="#banner">INICIO</a>
+            <div class="bordes"></div>
+            <a href="#">NOSOTROS</a>
+            <div class="bordes"></div>
+            <a href="#form">LOGIN</a>
+            <label for="check" class="ocultar">&#215</label>
+        </nav>
+    </header>
+    <section id="banner">
+       <div class="container">
+           <h3><span>corporation: </span>Diseño web responsive <br>
+            Diseño amigable</h3>
+           <a href="#" class="btnempezar">INFO</a>
+       </div>
+    </section>
+    <section id="personas">
+            <div class="perfil">
+                <img src="/Img/yo.jpg" alt="" class="img">
+                <h4>Agustin Haag</h4>
+                <p>Técnico superior en programación, futuro software developer.</p>
+                 <button class="boton">Saber más</button>
+            </div>
+            <div class="perfil">
+                <img src="/Img/mujer.jpg" alt="" class="img">
+                <h4>Lourdes Tobares</h4>
+                <p>Profesional en marketing digital, community manager y redes sociales.</p>
+                 <button class="boton">Saber más</button>
+            </div>
+            <div class="perfil">
+                <img src="/Img/hombre.jpg" alt="" class="img">
+                <h4>Max Spilberg</h4>
+                <p> Maestría en Data analisty: profesional en análisis y manejo de datos </p>
+                 <button class="boton">Saber más</button>
+            </div>
+    </section>
+    <section id="caracteristicas">
+          <div class="contenedoricon">
+            <div>
+                <i class="fa-solid fa-truck-fast fa-3x"></i>
+                <h3>Rápido</h3>
+                <p>Diseño más agíl de america latina</p>
+            </div>
+           
+            <div>
+                <i class="fa-brands fa-accessible-icon fa-3x"></i>
+                <h3>Accesible</h3>
+                <p>Somos 100% inclusivos</p>
+            </div>
+            
+            <div id="iconmobile">
+                <i class="fa-solid fa-mobile-screen-button fa-3x"></i>
+                <h3>Mobile</h3>
+                <p>Adaptable a cualquier dispositivo</p>
+            </div>
+          </div> 
+          <div class="contenedorbtn"> <button class="boton"> Conoce más</button></div>
+    </section>
+   <section id="form">
+     <h5>Contacta con nosotros</h5>
+    <form action="" id="form">
+          <div class="input"><label for="text"> Nombre </label><input type="text" id="text" name="name" placeholder="Nombre"> <small></small></div>
+          <div class="input"><label for="email">Email </label><input type="email" name="email" id="email" placeholder="Email"><small></small></div>
+          <div class="input"><label for="edad">Edad </label><input type="number" id="edad" name="num" placeholder="Edad"><small></small></div>
+          <div class="input"><label for="fechanac">Fecha de nacimiento </label><input type="date" id="fechanac"><small></small></div>
+        <div class="input"><label for="area">Mensaje </label><textarea name="area" id="area" cols="30" rows="7"placeholder="Mensaje"></textarea><small></small></div>
+        <div class="btnform">
+            <button class="boton">Enviar</button>
+        </div>
+    </form>
+   </section>
+  <footer>
+    <p>&copy; 2022 Codehaag</p>
+  </footer>
+  <script src="/Js/corporation.js"></script>
+  <script src="https://kit.fontawesome.com/6fe6321916.js" crossorigin="anonymous"></script>
+</body>
+</html>
