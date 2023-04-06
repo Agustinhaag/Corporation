@@ -58,10 +58,6 @@ a:hover, .mostrar:hover, .ocultar:hover{
 a:hover{
     text-decoration: underline 1px rgb(123, 228, 228) ;
 }
-#check{
-    display: none;  
-}
-
 #banner{
     padding: 0 50px;
     background-image: url(../img/montaña.jpg);
@@ -287,14 +283,22 @@ footer p{
         position: fixed; 
         width: 100%;
         height: 100vh;   
-        background: rgb(110, 110, 110);
-        top: 0;    
+        background: #30343F;
+        top: 0;     
         display: block;
-        right: -100%;   
+        right:0;   
+        bottom: 0;
         text-align: center;
         padding: 100px 0;
-        z-index: 100;  
-        transition: 1s;
+        z-index: 100; 
+        transition: 0.3s;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .menu.visible{
+        visibility: visible;
+        opacity: 1;
+        transition: 0.6s;
     }
        .logoimg{
         width: 100%;
@@ -315,10 +319,9 @@ footer p{
         position: absolute;
         right: 40px;
         top: 40px;
+        font-size: 35px;
     }
-    #check:checked ~ .menu{ 
-     right: 0;
-    }
+   
     .bordes{
         border-bottom: 1px solid rgba(167, 165, 165, 0.767);
         width: 40%;
