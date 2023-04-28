@@ -1,5 +1,5 @@
 
-let form = document.getElementById("form");
+let form = document.getElementById("formu");
 let usuario= document.getElementById("text");
 let email= document.getElementById("email");
 let edad= document.getElementById("edad");
@@ -55,6 +55,7 @@ function succes(input){
  let small= elemenpadre.querySelector("small");
  elemenpadre.className="inputsucces";
  small.innerText="";
+ form.submit();
 }
 
 let menu = document.getElementById("menu");
