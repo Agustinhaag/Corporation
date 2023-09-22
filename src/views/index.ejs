@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="Css/corporation.css">
+<title>Inicio</title>  
+<main>
+   <section id="banner">
+       <div class="container-banner">
+           <h3><span>corporation: </span>Lideres en inserción laboral y captura de talentos. <br>
+            Contamos con los mejores y más apasionados expertos.</h3>
+           <a href="#" class="btnempezar">INFO</a>
+       </div>
+    </section>
+    <section id="personas">
+        <h3>Conoce a algunos de nuestros talentos</h3>
+        <div class="container-card">
+<div class="perfil">
+                <img src="Img/yo.jpg" alt="" class="img">
+                <h4>Agustin Haag</h4>
+                <p>Técnico superior en programación, futuro software developer.</p>
+                 <button class="boton">Saber más</button>
+            </div>
+            <div class="perfil">
+                <img src="Img/mujer.jpg" alt="" class="img">
+                <h4>Lourdes Tobares</h4>
+                <p>Profesional en marketing digital, community manager y redes sociales.</p>
+                 <button class="boton">Saber más</button>
+            </div>
+            <div class="perfil">
+                <img src="Img/hombre.jpg" alt="" class="img">
+                <h4>Max Spilberg</h4>
+                <p> Maestría en Data analisty: profesional en análisis y manejo de datos </p>
+                 <button class="boton">Saber más</button>
+            </div>
+    </div>
+            
+    </section>
+    <section id="caracteristicas">
+          <div class="contenedoricon">
+            <div>
+                <i class="fa-solid fa-people-group"></i>
+                <h3>Comunidad</h3>
+                <p>La mas grande de america latina</p>
+            </div>
+            <div>
+                <i class="fa-brands fa-accessible-icon fa-3x"></i>
+                <h3>Accesible</h3>
+                <p>Somos 100% inclusivos</p>
+            </div>
+            <div id="iconmobile">
+                <i class="fa-regular fa-handshake"></i>
+                <h3>Acompañamiento</h3>
+                <p>Encontranos en todo momento siempre a disposición</p>
+            </div>
+          </div> 
+          <div class="contenedorbtn"> <button class="boton"> Conoce más</button></div>
+    </section>
+   <section id="form">
+     <h5>Contacta con nosotros</h5>
+
+    <form action="/" method="post" id="formu">
+        <div class="input">
+            <label for="text"> Nombre </label>
+            <input type="text" id="text" value="<%=values.name %>" name="name"  class="form-control <%= errors && errors.find(error => error.path === 'name') ? 'is-invalid' : '' %>" placeholder="Nombre"> 
+            <%if(typeof errors !== "undefined"){ %>
+                <% const nameError = errors.find(error=> error.path === 'name') %>
+                <div class="invalid-feedback">
+                  <%= nameError ? nameError.msg : ''%>
+                </div>  
+            <%}%>
+        </div>
+        <div class="input">
+            <label for="email">Email </label>
+            <input type="email" name="email" value="<%=values.email %>" id="email"  class="form-control <%= errors && errors.find(error => error.path === 'email') ? 'is-invalid' : '' %>" placeholder="Email">
+            <%if(typeof errors !== "undefined"){ %>
+                <% const emailError = errors.find(error=> error.path === 'email') %>
+                <div class="invalid-feedback">
+                  <%= emailError ? emailError.msg : ''%>
+                </div>  
+            <%}%>
+        </div>
+        <div class="input">
+            <label for="telefono">Teléfono </label>
+            <input type="number" id="telefono" value="<%=values.telefono %>" name="telefono" placeholder="Teléfono"  class="form-control <%= errors && errors.find(error => error.path === 'telefono') ? 'is-invalid' : '' %>">
+            <%if(typeof errors !== "undefined"){ %>
+                <% const telefonoError = errors.find(error=> error.path === 'telefono') %>
+                <div class="invalid-feedback">
+                  <%= telefonoError ? telefonoError.msg : ''%>
+                </div>  
+            <%}%>
+        </div>
+        <div class="input">
+            <label for="fechanac">Fecha de nacimiento </label>
+            <input value="<%=values.date %>" name="date" type="date" id="fechanac"  class="form-control <%= errors && errors.find(error => error.path === 'date') ? 'is-invalid' : '' %>">
+            <%if(typeof errors !== "undefined"){ %>
+                <% const dateError = errors.find(error=> error.path === 'date') %>
+                <div class="invalid-feedback">
+                  <%= dateError ? dateError.msg : ''%>
+                </div>  
+            <%}%>
+        </div>
+        <div class="input">
+            <label for="area">Mensaje </label>
+            <textarea name="mensaje"  id="area"  cols="30" rows="7"placeholder="Mensaje"  class="form-control <%= errors && errors.find(error => error.path === 'mensaje') ? 'is-invalid' : '' %>"> <%=values.mensaje %></textarea>
+            <%if(typeof errors !== "undefined"){ %>
+                <% const mensajeError = errors.find(error=> error.path === 'mensaje') %>
+                <div class="textarea-error-msg">
+                  <%= mensajeError ? mensajeError.msg : ''%>
+                </div>  
+            <%}%>
+        </div>
+        <div class="btnform">
+            <a href="/sucess" class="boton" type="submit">Enviar</a>
+        </div>
+    </form>
+   </section>
+    </main>

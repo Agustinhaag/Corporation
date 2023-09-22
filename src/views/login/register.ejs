@@ -1,0 +1,78 @@
+<title>Register</title>
+<link rel="stylesheet" href="Css/login.css" />
+<main>
+  <div class="container-form">
+    <form action="/register" method="post">
+      <input
+        type="text"
+        name="name"
+        id=""
+        value="<%=values.name%>"
+        class="form-control <%= errors && errors.find(error => error.path === 'name') ? 'is-invalid' : '' %>"
+      />
+      <% if (typeof errors !== "undefined") { %> <% const nameError =
+      errors.find(error => error.path === 'name'); %>
+      <div class="invalid-feedback"><%= nameError ? nameError.msg : '' %></div>
+      <% } %>
+      <input
+        type="text"
+        name="surname"
+        value="<%=values.surname%>"
+        class="form-control <%= errors && errors.find(error => error.path === 'surname') ? 'is-invalid' : '' %>"
+      />
+      <% if (typeof errors !== "undefined") { %> <% const surnameError =
+      errors.find(error => error.path === 'surname'); %>
+      <div class="invalid-feedback">
+        <%= surnameError ? surnameError.msg : '' %>
+      </div>
+      <% } %>
+      <input
+        type="email"
+        name="email"
+        id=""
+        value="<%=values.email%>"
+        class="form-control <%= errors && errors.find(error => error.path === 'email') ? 'is-invalid' : '' %>"
+      />
+      <% if (typeof errors !== "undefined") { %> <% const emailError =
+      errors.find(error => error.path === 'email'); %>
+      <div class="invalid-feedback">
+        <%= emailError ? emailError.msg : '' %>
+      </div>
+      <% } %>
+      <input
+        type="password"
+        name="password"
+        id=""
+        class="form-control <%= errors && errors.find(error => error.path === 'password') ? 'is-invalid' : '' %>"
+      />
+      <% if (typeof errors !== "undefined") { %> <% const passwordError =
+      errors.find(error => error.path === 'password'); %>
+      <div class="invalid-feedback">
+        <%= passwordError ? passwordError.msg : '' %>
+      </div>
+      <% } %>
+      <input
+        type="password"
+        name="password2"
+        id=""
+        class="form-control <%= errors && errors.find(error => error.path === 'password') ? 'is-invalid' : '' %>"
+      />
+      <% if (typeof errors !== "undefined") { %> <% const passwordError =
+      errors.find(error => error.path === 'password'); %>
+      <div class="invalid-feedback">
+        <%= passwordError ? passwordError.msg : '' %>
+      </div>
+      <% } %>
+      <input type="checkbox" name="check" id="" />
+      <% if (typeof errors !== "undefined") { %> <% const checkError =
+      errors.find(error => error.path === 'check'); %>
+      <div class="invalid-feedback">
+        <%= checkError ? checkError.msg : '' %>
+      </div>
+      <% } %>
+      <button type="submit">Enviar</button>
+    </form>
+    <p>¿Ya tenes cuenta?</p>
+    <a href="/login">Ingresa</a>
+  </div>
+</main>

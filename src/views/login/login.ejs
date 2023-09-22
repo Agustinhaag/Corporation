@@ -1,0 +1,18 @@
+<title>Login</title>
+<link rel="stylesheet" href="Css/login.css">
+<main>
+    <div class="container-form">
+        <form action="/login" method="post" >
+            <input type="email" name="email" id="" value="<%=values.email%>" class="form-control <%= typeof errors !== 'undefined' ? 'is-invalid' : '' %>">
+            <% if (typeof errors !== "undefined" ) { %> <% errors.forEach(err =>{ %>
+                <div class="invalid-feedback"><%= err.msg %></div>
+                <% })} %>
+            <input type="password" name="password" id="" class="form-control <%= typeof errors !== 'undefined' ? 'is-invalid' : '' %>">
+            <% if (typeof errors !== "undefined" ) { %> <% errors.forEach(err =>{ %>
+                <div class="invalid-feedback"><%= err.msg %></div>
+                <% })} %>
+            <button type="submit">Enviar</button>
+        </form>
+        <a href="/register">Registrarse</a>
+    </div>
+</main>
