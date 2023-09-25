@@ -6,7 +6,7 @@ const register = (req, res) => {
   res.render("login/register.ejs", { values: {}, errors: [] });
 };
 
-const createRegister = async (req,res) => {
+const createRegister = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.render("login/register.ejs", {
@@ -14,8 +14,9 @@ const createRegister = async (req,res) => {
       errors: errors.array(),
     });
   } else {
-    await serviceLogin.createRegister(req.body);
-    res.redirect("/login");
+   const userId= await serviceLogin.createRegister(req.body);
+   req.session.user_id = userId
+    res.redirect("user/create");
   }
 };
 
@@ -37,14 +38,14 @@ const postLogin = async (req, res) => {
     });
   } else {
     req.session.user_id = row[0].id;
-    res.redirect("/");
+    res.redirect("/perfil");
   }
 };
 
-const logout = ()=>{
-    req.session = null;
-    res.redirect("/");
-}
+const logout = () => {
+  req.session = null;
+  res.redirect("/");
+};
 
 module.exports = {
   register,

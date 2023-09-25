@@ -1,0 +1,82 @@
+.container-gral{
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-image: url(../Img/fondo-create2.png);
+    background-size: cover;
+}
+.container-gral form{
+    width: 80%;
+    margin: 0 auto 30px auto;
+    color: white;
+}
+.container-gral form .container-title{
+    text-align: center;
+}
+.container-gral form .container-form{
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+} 
+ .container-gral form .container-form .container-input{
+    display: flex;
+}
+ .container-input .container-info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container-input .container-info input{
+    width: 90%;
+}
+.container-gral form .container-form .container-data{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+input,textarea, select{
+    background: none;
+    margin: 5px 0 15px 0;
+    border-radius: 10px;
+    padding: 10px 0;
+    resize: none;
+    color: white;
+    outline: none;
+    border: 1px solid rgba(117, 117, 117, 0.89);
+}
+option{
+    color: black;
+}
+.input-file{
+    border: none;
+}
+label{
+    font-weight: 600;
+}
+input[type="file"] {
+    background: none;
+}
+.container-gral form .container-form .container-btn{
+    justify-content: center;
+    display: flex;
+}
+input::placeholder, textarea::placeholder{
+    padding-left: 5px;
+    color: rgba(240, 248, 255, 0.925);
+}
+@media(max-width:768px){ 
+    .container-gral form .container-form .container-input{
+        flex-direction: column;
+    }
+    .container-input .container-info{
+        width: 100%;
+    }
+    .container-gral form .container-form .container-data{
+        width: 90%;
+    }
+ }
+  
+  
+  
+  

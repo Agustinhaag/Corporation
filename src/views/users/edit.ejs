@@ -1,0 +1,115 @@
+<title>Editar user</title>
+<link rel="stylesheet" href="Css/create.css" />
+<main>
+  <section class="container-gral">
+    <form action="/user" method="post" enctype="multipart/form-data">
+      <div class="container-title"><h2>Editar perfil</h2></div>
+      <div class="container-form">
+        <div class="container-input">
+          <div class="container-info">
+            <label for="name">Nombre:</label>
+            <input type="text" placeholder="Nombre" name="name" id="name" value="<%=values.name%>" />
+          </div>
+          <div class="container-info">
+            <label for="edad">Edad:</label>
+            <input type="number" placeholder="Edad" name="edad" id="edad" value="<%=values.edad%>" />
+          </div>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Email" name="email" id="email" value="<%=values.email%>" />
+          </div>
+          <div class="container-info">
+            <label for="nacimiento">Fecha de nacimiento:</label>
+            <input
+              type="date"
+              placeholder="Fecha de nacimiento"
+              name="nacimiento"
+              id="nacimiento"
+              value="<%=values.nacimiento%>"
+            />
+          </div>
+        </div>
+        <div class="container-data">
+          <label for="genero">Género</label>
+          <select name="genero" id="genero">
+            <option value="<%=values.genero%>"></option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Indefinido">Indefinido</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="caracteristica">Código:</label>
+            <input
+              type="text"
+              placeholder="Código"
+              name="caracteristica"
+              id="caracteristica"
+              value="<%=values.caracteristica%>"
+            />
+          </div>
+          <div class="container-info">
+            <label for="telefono">Teléfono:</label>
+            <input type="number" placeholder="Teléfono" name="telefono" id="telefono" value="<%=values.telefono%>" />
+          </div>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="pais">País</label>
+            <input type="text" placeholder="País" name="pais" id="pais" value="<%=values.pais%>" />
+          </div>
+          <div class="container-info">
+            <label for="provincia">Provincia:</label>
+            <input type="text" placeholder="Provincia" id="provincia" name="provincia" value="<%=values.provincia%>" />
+          </div>
+        </div>
+        <div class="container-data">
+          <label for="domicilio">Domicilio</label>
+          <input type="text" placeholder="Domicilio" name="domicilio" id="domicilio" value="<%=values.domicilio%>" />
+        </div>
+        <div class="container-data">
+          <label for="estudios">Nivel de estudios alcanzados:</label>
+          <select name="estudios" id="estudios">
+            <option value="<%=values.estudios%>"></option>
+            <option value="curso">Curso/Bootcamp</option>
+            <option value="secundario">Secundario</option>
+            <option value="terciario">Terciario</option>
+            <option value="universitario">Universitario</option>
+            <option value="postgrado">Postgrado</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="titulo">Título:</label>
+            <input type="text" placeholder="Título" name="titulo" id="titulo" value="<%=values.titulo%>" />
+          </div>
+          <div class="container-info">
+            <label for="trabajo">Puesto actual:</label>
+            <input type="text" placeholder="Trabajo" name="trabajo" value="<%=values.trabajo%>" />
+          </div>
+        </div>
+        <div class="container-data">
+          <label for="descripcion">Descripción:</label>
+          <textarea placeholder="Descripción" name="descripcion" id="descripcion" cols="20" rows="5">
+<%=values.descripcion%></textarea
+          >
+        </div>
+        <div class="container-data">
+          <label for="cv">Curriculum:</label>
+          <input type="file" class="input-file" name="cv" id="cv" accept=".pdf" />
+        </div>
+        <div class="curriculum">
+            <a download="<%=values.name%>" class="btn btn-outline-secondary" href="/Uploads/<%=values.cv%>">Descargar CV</a>
+        </div>
+        <div class="container-btn">
+          <button class="btn btn-outline-light" type="submit">Editar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>

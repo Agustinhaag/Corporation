@@ -1,0 +1,57 @@
+#banner{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#banner .container-form{
+    width: 100%;
+    min-width: 220px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+#banner .container-form form h2{
+    min-width: 180px;
+}
+#banner .container-form form, #banner .container-form .container-data{
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+}
+#banner .container-form form .container-input input{
+  background: none;
+  color: white;
+  margin: 7px 0;
+}
+#banner .container-form form .container-input input::placeholder{
+    color: rgba(255, 255, 255, 0.63);
+}
+#banner .container-form form .containerBtn{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+#banner .container-form .container-data{
+   display: flex;
+   justify-content: center;
+}
+#banner .container-form .container-data p{
+    min-width: 142px;
+}
+#banner .container-form .container-data a{
+margin-left: 5px;
+color: rgb(123, 228, 228);
+text-decoration: none;
+}
+#banner .container-form .container-data a:hover{
+    text-decoration: 1px underline rgb(123, 228, 228);
+}
+#banner .container-form .container-check{
+    display: flex;
+}
+#banner .container-form .container-check label{
+    margin-right: 5px;
+}

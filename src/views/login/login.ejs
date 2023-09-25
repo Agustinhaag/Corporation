@@ -1,18 +1,47 @@
 <title>Login</title>
-<link rel="stylesheet" href="Css/login.css">
+<link rel="stylesheet" href="Css/login.css" />
 <main>
+  <section id="banner">
     <div class="container-form">
-        <form action="/login" method="post" >
-            <input type="email" name="email" id="" value="<%=values.email%>" class="form-control <%= typeof errors !== 'undefined' ? 'is-invalid' : '' %>">
-            <% if (typeof errors !== "undefined" ) { %> <% errors.forEach(err =>{ %>
-                <div class="invalid-feedback"><%= err.msg %></div>
-                <% })} %>
-            <input type="password" name="password" id="" class="form-control <%= typeof errors !== 'undefined' ? 'is-invalid' : '' %>">
-            <% if (typeof errors !== "undefined" ) { %> <% errors.forEach(err =>{ %>
-                <div class="invalid-feedback"><%= err.msg %></div>
-                <% })} %>
-            <button type="submit">Enviar</button>
-        </form>
-        <a href="/register">Registrarse</a>
+      <form action="/login" method="post">
+        <h2>Inicio de sesión</h2>
+        <div class="container-input">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            id="email"
+            value="<%=values.email%>"
+            class="form-control <%= typeof errors !== 'undefined' ? 'is-invalid' : '' %>"
+          />
+          <% if (typeof errors !== "undefined" ) { %> <% errors.forEach(err =>{
+          %>
+          <div class="invalid-feedback"><%= err.msg %></div>
+          <% })} %>
+        </div>
+        <div class="container-input">
+          <label for="password">Contraseña</label>
+          <input
+          placeholder="Password"
+            type="password"
+            name="password"
+            id="password"
+            class="form-control <%= typeof errors !== 'undefined' ? 'is-invalid' : '' %>"
+          />
+          <% if (typeof errors !== "undefined" ) { %> <% errors.forEach(err =>{
+          %>
+          <div class="invalid-feedback"><%= err.msg %></div>
+          <% })} %>
+        </div>
+        <div class="containerBtn">
+          <button class="btn btn-outline-light" type="submit">Enviar</button>
+        </div>
+      </form>
+      <div class="container-data">
+        <p>¿Aún no tiene una cuenta?</p>
+        <a href="/register">Registrese</a>
+      </div>
     </div>
+  </section>
 </main>

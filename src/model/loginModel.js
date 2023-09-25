@@ -9,7 +9,8 @@ const createRegister = async (body) => {
       email,
       password,
     });
-    return rows;
+    const userId = rows.insertId;
+    return userId;
   } catch (error) {
     if (error.code === "ER_DUP_ENTRY") {
         return "registro existente";

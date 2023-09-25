@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
 }
-
 header{
     display: flex;
     color: white;
@@ -52,7 +51,13 @@ display: flex;
     text-decoration: underline 1px rgb(123, 228, 228) ;
     text-underline-offset: 3px;
 }
-
+#banner{
+    width: 100%;
+    min-height: 94vh;
+    background-image: url(../Img/montaña.jpg);
+    background-size: cover;
+    padding: 0 70px;
+}
 footer{
     
     text-align: center;
@@ -66,6 +71,7 @@ footer p{
 
 main{
     min-height: 90vh;
+    height: 100%;
 }
 @media(max-width:768px){  
     .mostrar, .ocultar{
