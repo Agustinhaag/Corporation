@@ -15,7 +15,7 @@ const validacion = [
     .bail()
     .custom((value) => {
       return new Promise((resolve, reject) => {
-        sql = "SELECT * FROM usuarios WHERE email = ?";
+        sql = "SELECT * FROM perfiles WHERE email = ?";
         where = [value];
         conect.query(sql, where).then((row) => {
           if (row[0].length != 0) {

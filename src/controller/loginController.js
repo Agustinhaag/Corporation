@@ -14,9 +14,9 @@ const createRegister = async (req, res) => {
       errors: errors.array(),
     });
   } else {
-   const userId= await serviceLogin.createRegister(req.body);
-   req.session.user_id = userId
-    res.redirect("user/create");
+    const data = await serviceLogin.createRegister(req.body);
+    req.session.user_id = data.id;
+    res.render("users/create.ejs", { values: data });
   }
 };
 
@@ -38,7 +38,7 @@ const postLogin = async (req, res) => {
     });
   } else {
     req.session.user_id = row[0].id;
-    res.redirect("/perfil");
+    res.redirect(`user/perfil/${row[0].id}` );
   }
 };
 

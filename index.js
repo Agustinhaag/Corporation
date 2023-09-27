@@ -25,7 +25,7 @@ const routeInicio = require("./src/route/indexRoute")
 app.use("/", routeInicio)
 
 const useRoute = require("./src/route/userRoute")
-app.use("/user",isLogin ,useRoute)
+app.use("/user" ,useRoute)
 
 const loginRoute = require("./src/route/loginRoute")
 app.use("/", loginRoute)

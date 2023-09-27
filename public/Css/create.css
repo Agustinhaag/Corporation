@@ -36,7 +36,7 @@
     flex-direction: column;
 }
 input,textarea, select{
-    background: none;
+    background: rgba(199, 199, 199, 0.459);
     margin: 5px 0 15px 0;
     border-radius: 10px;
     padding: 10px 0;
@@ -76,7 +76,38 @@ input::placeholder, textarea::placeholder{
         width: 90%;
     }
  }
-  
-  
-  
-  
+/*--------------------------ssucess---------------------------*/
+
+.container-total{
+    background-image: url(../Img/fondo-create.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    min-height: 94vh;
+   align-items: center;
+} 
+.container-total .container-sucess{
+   width: 80%;
+   margin: 0 auto;
+   height: 60%;
+   display: flex;
+align-items: center;
+color: white;
+  flex-direction: column;
+}
+.container-total .container-sucess h2{
+    font-size: 40px;
+    margin: 50px 0 30px 0;
+}
+.container-total .container-sucess p{
+    font-size: 22px;
+    
+    font-weight: 600;
+}
+.container-total .container-sucess .container-btn{
+    display: flex;
+    justify-content: right;
+    width: 60%;
+    margin-top: 50px;
+}

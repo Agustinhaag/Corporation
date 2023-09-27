@@ -3,7 +3,6 @@ const route = express.Router();
 const { body } = require("express-validator");
 const controller = require("../controller/userController.js");
 
-route.get("/", controller.perfil);
 
 const validar = [
   body("name").notEmpty().withMessage("El campo nombre no puede estar vacio"),
@@ -42,19 +41,39 @@ const validar = [
       }
     })
     .withMessage("Por favor envie un archivo .PDF"),
+ 
 ];
 
 const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "public/Uploads"),
+const storagecv = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, "public/Uploads/cv"),
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
 });
 
-const cargar = multer({ storage });
+const cargar = multer({ storage: storagecv });
+
 
 route.get("/create", controller.create);
-route.post("/", cargar.single("cv"), validar, controller.guardar);
-route.get("/sucess", controller.sucess)
+route.post("/", cargar.single("cv") ,validar, controller.guardar);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+route.get("/perfil/:id", controller.perfil);
+
+route.get("/sucess", controller.sucess);
 
 route.get("/edit", controller.edit);
 

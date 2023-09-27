@@ -12,7 +12,12 @@ const postLogin = async(body)=>{
     return row
     }
 
+    const mostrar = async ( body)=>{
+      const row = await modelo.mostrar(body);
+      return row;
+    }
 module.exports = {
   createRegister,
   postLogin,
+  mostrar,
 }

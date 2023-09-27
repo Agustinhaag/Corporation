@@ -1,16 +1,19 @@
+
 const { conect } = require("../conect/conect");
 
 const createRegister = async (body) => {
-  const { name, surname, email, password } = body;
+  const name = body.name + body.surname
+  const { email, password } = body;
   try {
-    const [rows] = await conect.query("INSERT INTO usuarios SET ?", {
+    const [rows] = await conect.query("INSERT INTO perfiles SET ?", {
       name,
-      surname,
       email,
       password,
     });
     const userId = rows.insertId;
-    return userId;
+    const [result]= await conect.query("SELECT * FROM perfiles WHERE ?",{email})
+    const newData = result[0];
+    return newData;
   } catch (error) {
     if (error.code === "ER_DUP_ENTRY") {
         return "registro existente";
@@ -24,8 +27,8 @@ const createRegister = async (body) => {
 const postLogin = async(req)=>{
     const {email}= req.body;
 try {
-    const [row] = await conect.query("SELECT * FROM usuarios WHERE ?", {email});
-    return row
+    const [row] = await conect.query("SELECT * FROM perfiles WHERE ?", {email});
+    return row;
 } catch (error) {
     throw error
 }finally{
