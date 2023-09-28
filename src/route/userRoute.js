@@ -25,9 +25,9 @@ const validar = [
   body("provincia")
     .notEmpty()
     .withMessage("El campo provincia no puede estar vacio"),
-  body("domicilio")
+  body("civil")
     .notEmpty()
-    .withMessage("El campo domicilio no puede estar vacio"),
+    .withMessage("El campo estado civil no puede estar vacio"),
   body("estudios")
     .notEmpty()
     .withMessage("El campo estudios no puede estar vacio"),
@@ -71,7 +71,7 @@ route.get("/perfil/:id", controller.perfil);
 route.get("/edit/:id", controller.edit);
 route.put("/",cargar.single("cv") ,validar, controller.update);
 
-route.delete("/:id", controller.borrar)
+route.delete("/:id", controller.borrar);
 
 route.get("/sucess", controller.sucess);
 route.get("/borradoExitoso", controller.borradoExitoso)

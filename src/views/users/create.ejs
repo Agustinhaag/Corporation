@@ -170,19 +170,19 @@
           </div>
         </div>
         <div class="container-data">
-          <label for="domicilio">Domicilio</label>
+          <label for="civil">Estado civil</label>
           <input
             type="text"
-            placeholder="Domicilio"
-            name="domicilio"
-            id="domicilio"
-            class=" form-control  <%= errors && errors.find(error => error.path === 'domicilio') ? 'is-invalid' : '' %>"
-            value="<%=values.domicilio%>"
+            placeholder="Estado civil"
+            name="civil"
+            id="civil"
+            class=" form-control  <%= errors && errors.find(error => error.path === 'civil') ? 'is-invalid' : '' %>"
+            value="<%=values.civil%>"
           />
           <% if (typeof errors !== "undefined") { %>
-            <% const domicilioError = errors.find(error => error.path === 'domicilio'); %>
+            <% const civilError = errors.find(error => error.path === 'civil'); %>
             <div class="invalid-feedback">
-               <%= domicilioError ? domicilioError.msg : '' %>
+               <%= civilError ? civilError.msg : '' %>
             </div>
         <% } %>
         </div>
@@ -319,7 +319,7 @@
             <label for="redes">Red social de preferencia:</label>
             <input
               type="text"
-              placeholder="edes"
+              placeholder="Redes"
               name="redes"
               value="<%=values.redes%>"
             />

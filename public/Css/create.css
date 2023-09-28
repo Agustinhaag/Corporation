@@ -83,6 +83,9 @@ input::placeholder, textarea::placeholder{
     .container-gral form .container-form .container-data{
         width: 90%;
     }
+    h2{
+        color: gray;
+    }
  }
 /*--------------------------ssucess---------------------------*/
 
@@ -118,9 +121,4 @@ color: white;
     justify-content: right;
     width: 60%;
     margin-top: 50px;
-}
-@media(max-width:768px){ 
-    h2{
-        color: gray;
-    }
 }

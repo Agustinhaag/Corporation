@@ -27,16 +27,28 @@ const edit = async (req, res) => {
   });
 };
 
-const borradoExitoso = (req,res)=>{
-res.render("users/borradoExitoso.ejs",{layout: "layout/private"})
-}
+const borradoExitoso = (req, res) => {
+  res.render("users/borradoExitoso.ejs", { layout: "layout/private" });
+};
 
-const update = () => {};
+const update = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.render("users/edit.ejs", {
+      values: req.body,
+      errors: errors.array(),
+    });
+  }
+  const data = await service.update(req.body, req.file);
+
+      res.render("users/perfil.ejs", { data });
+  
+};
 
 const borrar = async (req, res) => {
   const user = await service.borrar(req.params);
   req.session.user_id = null;
- return res.redirect("/user/borradoExitoso");
+  return res.redirect("/user/borradoExitoso");
 };
 
 const sucess = (req, res) => {
