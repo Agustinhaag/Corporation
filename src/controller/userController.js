@@ -18,12 +18,25 @@ const guardar = async (req, res) => {
   res.render("users/sucess.ejs", { values: data });
 };
 
-const edit = (req, res) => {
+const edit = async (req, res) => {
+  const user = await service.findOne(req.params);
   res.render("users/edit.ejs", {
-    values: {},
+    values: user,
     errors: [],
     layout: "layout/private",
   });
+};
+
+const borradoExitoso = (req,res)=>{
+res.render("users/borradoExitoso.ejs",{layout: "layout/private"})
+}
+
+const update = () => {};
+
+const borrar = async (req, res) => {
+  const user = await service.borrar(req.params);
+  req.session.user_id = null;
+ return res.redirect("/user/borradoExitoso");
 };
 
 const sucess = (req, res) => {
@@ -42,5 +55,8 @@ module.exports = {
   guardar,
   perfil,
   edit,
+  borrar,
+  borradoExitoso,
+  update,
   sucess,
 };

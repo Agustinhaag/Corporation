@@ -1,14 +1,16 @@
 
 const { conect } = require("../conect/conect");
 
-const createRegister = async (body) => {
+const createRegister = async (body,file) => {
   const name = body.name + body.surname
+  let image = file ? file.filename : null;
   const { email, password } = body;
   try {
     const [rows] = await conect.query("INSERT INTO perfiles SET ?", {
       name,
       email,
       password,
+      image
     });
     const userId = rows.insertId;
     const [result]= await conect.query("SELECT * FROM perfiles WHERE ?",{email})

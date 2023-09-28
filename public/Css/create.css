@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
 }
-.container-input .container-info input{
+.container-input .container-info input, .container-input .container-info select {
     width: 90%;
 }
 .container-gral form .container-form .container-data{
@@ -36,14 +36,14 @@
     flex-direction: column;
 }
 input,textarea, select{
-    background: rgba(199, 199, 199, 0.459);
+    background-color: rgba(199, 199, 199, 0.459) !important;
     margin: 5px 0 15px 0;
-    border-radius: 10px;
-    padding: 10px 0;
+    border-radius: 10px !important;
+    padding: 10px 0 !important;
     resize: none;
-    color: white;
+    color: white !important;
     outline: none;
-    border: 1px solid rgba(117, 117, 117, 0.89);
+    border: 1px solid rgba(117, 117, 117, 0.89) !important;
 }
 option{
     color: black;
@@ -55,7 +55,8 @@ label{
     font-weight: 600;
 }
 input[type="file"] {
-    background: none;
+    background: none !important;
+    border: none !important;
 }
 .container-gral form .container-form .container-btn{
     justify-content: center;
@@ -63,7 +64,14 @@ input[type="file"] {
 }
 input::placeholder, textarea::placeholder{
     padding-left: 5px;
-    color: rgba(240, 248, 255, 0.925);
+    color: rgba(240, 248, 255, 0.925) !important;
+}
+.is-invalid{
+    border: 1px solid #dc3545 !important;
+    margin: 5px 0 0 0;
+}
+.is-invalid#nacimiento{
+    background-image: none !important;
 }
 @media(max-width:768px){ 
     .container-gral form .container-form .container-input{
@@ -110,4 +118,9 @@ color: white;
     justify-content: right;
     width: 60%;
     margin-top: 50px;
+}
+@media(max-width:768px){ 
+    h2{
+        color: gray;
+    }
 }

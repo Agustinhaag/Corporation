@@ -51,7 +51,11 @@ text-decoration: none;
 }
 #banner .container-form .container-check{
     display: flex;
+    flex-direction: column;
 }
 #banner .container-form .container-check label{
     margin-right: 5px;
+}
+.title{
+    color: white;
 }

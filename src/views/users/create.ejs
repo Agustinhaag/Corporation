@@ -8,73 +8,188 @@
         <div class="container-input">
           <div class="container-info">
             <label for="name">Nombre:</label>
-            <input type="text" placeholder="Nombre" name="name" id="name" value="<%=values.name%>" />
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="form-control <%= errors && errors.find(error => error.path === 'name') ? 'is-invalid' : '' %>"
+              name="name"
+              id="name"
+              value="<%=values.name%>"
+            />
+            <% if (typeof errors !== "undefined") { %> <% const nameError =
+            errors.find(error => error.path === 'name'); %>
+            <div class="invalid-feedback">
+              <%= nameError ? nameError.msg : '' %>
+            </div>
+            <% } %>
           </div>
           <div class="container-info">
             <label for="edad">Edad:</label>
-            <input type="number" placeholder="Edad" name="edad" id="edad" value="<%=values.edad%>" />
+            <input
+              type="number"
+              placeholder="Edad"
+              name="edad"
+              class="form-control <%= errors && errors.find(error => error.path === 'edad') ? 'is-invalid' : '' %>"
+              id="edad"
+              value="<%=values.edad%>"
+            />
+            <% if (typeof errors !== "undefined") { %> <% const edadError =
+            errors.find(error => error.path === 'edad'); %>
+            <div class="invalid-feedback mb-1">
+              <%= edadError ? edadError.msg : '' %>
+            </div>
+            <% } %>
           </div>
         </div>
         <div class="container-input">
           <div class="container-info">
             <label for="email">Email:</label>
-            <input type="email" placeholder="Email" name="email" id="email" value="<%=values.email%>" />
+            <input
+              type="email"
+              placeholder="Email"
+              class="form-control <%= errors && errors.find(error => error.path === 'email') ? 'is-invalid' : '' %>"
+              name="email"
+              id="email"
+              value="<%=values.email%>"
+            />
+            <% if (typeof errors !== "undefined") { %> <% const emailError =
+            errors.find(error => error.path === 'email'); %>
+            <div class="invalid-feedback">
+              <%= emailError ? emailError.msg : '' %>
+            </div>
+            <% } %>
           </div>
           <div class="container-info">
             <label for="nacimiento">Fecha de nacimiento:</label>
             <input
               type="date"
+              class="form-control <%= errors && errors.find(error => error.path === 'nacimiento') ? 'is-invalid' : '' %>"
               placeholder="Fecha de nacimiento"
               name="nacimiento"
               id="nacimiento"
               value="<%=values.nacimiento%>"
             />
+            <% if (typeof errors !== "undefined") { %> <% const nacimientoError
+            = errors.find(error => error.path === 'nacimiento'); %>
+            <div class="invalid-feedback">
+              <%= nacimientoError ? nacimientoError.msg : '' %>
+            </div>
+            <% } %>
           </div>
         </div>
         <div class="container-data">
           <label for="genero">Género</label>
-          <select name="genero" id="genero">
-            <option value="<%=values.genero%>"></option>
+          <select
+            name="genero"
+            id="genero"
+            class="form-control <%= errors && errors.find(error => error.path === 'genero') ? 'is-invalid' : '' %>"
+          >
+          <option value="" disabled selected>Selecciona una opción</option>
             <option value="Masculino">Masculino</option>
             <option value="Femenino">Femenino</option>
             <option value="Indefinido">Indefinido</option>
             <option value="Otro">Otro</option>
           </select>
+          <% if (typeof errors !== "undefined") { %> <% const generoError =
+          errors.find(error => error.path === 'genero'); %>
+          <div class="invalid-feedback">
+            <%= generoError ? generoError.msg : '' %>
+          </div>
+          <% } %>
         </div>
         <div class="container-input">
           <div class="container-info">
             <label for="caracteristica">Código:</label>
             <input
               type="text"
+              class="form-control <%= errors && errors.find(error => error.path === 'caracteristica') ? 'is-invalid' : '' %>"
               placeholder="Código"
               name="caracteristica"
               id="caracteristica"
               value="<%=values.caracteristica%>"
             />
+            <% if (typeof errors !== "undefined") { %> 
+              <% const caracteristicaError = errors.find(error => error.path === 'caracteristica'); %>
+              <div class="invalid-feedback">
+                <%= caracteristicaError ? caracteristicaError.msg : '' %>
+              </div>
+              <% } %>
           </div>
           <div class="container-info">
             <label for="telefono">Teléfono:</label>
-            <input type="number" placeholder="Teléfono" name="telefono" id="telefono" value="<%=values.telefono%>" />
+            <input
+              type="number"
+              class="form-control <%= errors && errors.find(error => error.path === 'telefono') ? 'is-invalid' : '' %>"
+              placeholder="Teléfono"
+              name="telefono"
+              id="telefono"
+              value="<%=values.telefono%>"
+            />
+            <% if (typeof errors !== "undefined") { %> 
+              <% const telefonoError = errors.find(error => error.path === 'telefono'); %>
+              <div class="invalid-feedback">
+                <%= telefonoError ? telefonoError.msg : '' %>
+              </div>
+              <% } %>
           </div>
         </div>
         <div class="container-input">
           <div class="container-info">
             <label for="pais">País</label>
-            <input type="text" placeholder="País" name="pais" id="pais" value="<%=values.pais%>" />
+            <input
+              type="text"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'pais') ? 'is-invalid' : '' %>"
+              placeholder="País"
+              name="pais"
+              id="pais"
+              value="<%=values.pais%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const paisError = errors.find(error => error.path === 'pais'); %>
+              <div class="invalid-feedback">
+                 <%= paisError ? paisError.msg : '' %>
+              </div>
+          <% } %>
           </div>
           <div class="container-info">
             <label for="provincia">Provincia:</label>
-            <input type="text" placeholder="Provincia" id="provincia" name="provincia" value="<%=values.provincia%>" />
+            <input
+              type="text"
+              placeholder="Provincia"
+              id="provincia"
+              name="provincia"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'provincia') ? 'is-invalid' : '' %>"
+              value="<%=values.provincia%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const provinciaError = errors.find(error => error.path === 'provincia'); %>
+              <div class="invalid-feedback">
+                 <%= provinciaError ? provinciaError.msg : '' %>
+              </div>
+          <% } %>
           </div>
         </div>
         <div class="container-data">
           <label for="domicilio">Domicilio</label>
-          <input type="text" placeholder="Domicilio" name="domicilio" id="domicilio" value="<%=values.domicilio%>" />
+          <input
+            type="text"
+            placeholder="Domicilio"
+            name="domicilio"
+            id="domicilio"
+            class=" form-control  <%= errors && errors.find(error => error.path === 'domicilio') ? 'is-invalid' : '' %>"
+            value="<%=values.domicilio%>"
+          />
+          <% if (typeof errors !== "undefined") { %>
+            <% const domicilioError = errors.find(error => error.path === 'domicilio'); %>
+            <div class="invalid-feedback">
+               <%= domicilioError ? domicilioError.msg : '' %>
+            </div>
+        <% } %>
         </div>
         <div class="container-data">
           <label for="estudios">Nivel de estudios alcanzados:</label>
-          <select name="estudios" id="estudios">
-            <option value="<%=values.estudios%>"></option>
+          <select name="estudios" id="estudios" class=" form-control  <%= errors && errors.find(error => error.path === 'estudios') ? 'is-invalid' : '' %>">
+            <option value="" disabled selected>Selecciona una opción</option>
             <option value="curso">Curso/Bootcamp</option>
             <option value="secundario">Secundario</option>
             <option value="terciario">Terciario</option>
@@ -82,26 +197,149 @@
             <option value="postgrado">Postgrado</option>
             <option value="otro">Otro</option>
           </select>
+          <% if (typeof errors !== "undefined") { %>
+            <% const estudiosError = errors.find(error => error.path === 'estudios'); %>
+            <div class="invalid-feedback">
+               <%= estudiosError ? estudiosError.msg : '' %>
+            </div>
+        <% } %>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="estado">Estado del nivel académico:</label>
+            <select name="estado" id="" class=" form-control  <%= errors && errors.find(error => error.path === 'estado') ? 'is-invalid' : '' %>">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="En curso">En curso</option>
+              <option value="Graduado">Graduado</option>
+              <option value="Abandonado">Abandonado</option>
+            </select>
+            <% if (typeof errors !== "undefined") { %>
+              <% const estadoError = errors.find(error => error.path === 'estado'); %>
+              <div class="invalid-feedback">
+                 <%= estadoError ? estadoError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+          <div class="container-info">
+            <label for="nacionalidad">Nacionalidad:</label>
+            <input
+              type="text"
+              placeholder="Nacionalidad"
+              name="nacionalidad"
+              id="nacionalidad"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'nacionalidad') ? 'is-invalid' : '' %>"
+              value="<%=values.nacionalidad%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const nacionalidadError = errors.find(error => error.path === 'nacionalidad'); %>
+              <div class="invalid-feedback">
+                 <%= nacionalidadError ? nacionalidadError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+        </div>
+        <div class="container-data">
+          <label for="habilidades">Habilidades:</label>
+          <textarea
+            placeholder="Habilidades"
+            name="habilidades"
+            id="habilidades"
+            cols="20"
+            rows="5"
+          >
+<%=values.habilidades%></textarea
+          >
         </div>
         <div class="container-input">
           <div class="container-info">
             <label for="titulo">Título:</label>
-            <input type="text" placeholder="Título" name="titulo" id="titulo" value="<%=values.titulo%>" />
+            <input
+              type="text"
+              placeholder="Título"
+              name="titulo"
+              id="titulo"
+              value="<%=values.titulo%>"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'titulo') ? 'is-invalid' : '' %>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const tituloError = errors.find(error => error.path === 'titulo'); %>
+              <div class="invalid-feedback">
+                 <%= tituloError ? tituloError.msg : '' %>
+              </div>
+          <% } %>
           </div>
           <div class="container-info">
             <label for="trabajo">Puesto actual:</label>
-            <input type="text" placeholder="Trabajo" name="trabajo" value="<%=values.trabajo%>" />
+            <input
+              type="text"
+              placeholder="Trabajo"
+              name="trabajo"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'trabajo') ? 'is-invalid' : '' %>"
+              value="<%=values.trabajo%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const trabajoError = errors.find(error => error.path === 'trabajo'); %>
+              <div class="invalid-feedback">
+                 <%= trabajoError ? trabajoError.msg : '' %>
+              </div>
+          <% } %>
           </div>
         </div>
         <div class="container-data">
-          <label for="descripcion">Descripción:</label>
-          <textarea placeholder="Descripción" name="descripcion" id="descripcion" cols="20" rows="5">
+          <label for="descripcion">Carta de presentación:</label>
+          <textarea
+            placeholder="Descripción"
+            name="descripcion"
+            id="descripcion"
+            cols="20"
+            rows="5"
+          >
 <%=values.descripcion%></textarea
           >
         </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="linkedin">Perfil de linkedin:</label>
+            <input
+              type="text"
+              placeholder="Título"
+              name="linkedin"
+              id="linkedin"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'linkedin') ? 'is-invalid' : '' %>"
+              value="<%=values.linkedin%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const linkedinError = errors.find(error => error.path === 'linkedin'); %>
+              <div class="invalid-feedback">
+                 <%= linkedinError ? linkedinError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+          <div class="container-info">
+            <label for="redes">Red social de preferencia:</label>
+            <input
+              type="text"
+              placeholder="edes"
+              name="redes"
+              value="<%=values.redes%>"
+            />
+          </div>
+        </div>
         <div class="container-data">
           <label for="cv">Curriculum:</label>
-          <input type="file" class="input-file" name="cv" id="cv" accept=".pdf" />
+          <input
+            type="file"
+            name="cv"
+            id="cv"
+            class="input-file <%= errors && errors.find(error => error.path === 'cv') ? 'is-invalid' : '' %>"
+            accept=".pdf"
+          />
+          <% if (typeof errors !== "undefined") { %>
+            <% const cvError = errors.find(error => error.path === 'cv'); %>
+            <div class="invalid-feedback">
+               <%= cvError ? cvError.msg : '' %>
+            </div>
+        <% } %>
         </div>
         <div class="container-btn">
           <button class="btn btn-outline-light" type="submit">Crear</button>

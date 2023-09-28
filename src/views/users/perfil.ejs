@@ -1,2 +1,30 @@
-<h2><%=data.email%></h2>
+<title><%=data.name%></title>
+
+<main>
+   <h2><%=data.email%></h2>
 <h2><%=data.name%></h2>
+<a href="/user/edit/<%=data.id%>">editar</a>
+<form action="/user/<%=data.id%>?_method=DELETE" method="post" class="form-delete">
+   <button type="submit" class="btn"><i class="fa-solid fa-trash-can"></i></button>
+</form>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+<script>
+  document.addEventListener("submit", (e) => {
+    if (e.target.classList.contains("form-delete")) {
+      e.preventDefault();
+      Swal.fire({
+        icon: "warning",
+        title: "¿Estás seguro?",
+        text: "¡Estás a punto de eliminar tu usuario!",
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          e.target.submit();
+        }
+      });
+    }
+  });
+</script>

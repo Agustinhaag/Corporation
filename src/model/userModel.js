@@ -1,11 +1,14 @@
 const { conect } = require("../conect/conect");
 const moment = require("moment");
+const { use } = require("../route/indexRoute");
 
 const guardar = async (body, file) => {
   let edad = parseInt(body.edad);
   let telefono = parseInt(body.telefono);
   let cv = file ? file.filename : null;
   let descripcion = body.descripcion ? body.descripcion : null;
+  let habilidades = body.habilidades ? body.habilidades : null;
+  let redes = body.redes ? body.redes : null;
   const {
     name,
     email,
@@ -17,6 +20,9 @@ const guardar = async (body, file) => {
     pais,
     provincia,
     domicilio,
+    linkedin,
+    estado,
+    nacionalidad
   } = body;
   const fecha = body.nacimiento;
   const nacimiento = moment(fecha).format("YYYY-MM-DD");
@@ -24,10 +30,12 @@ const guardar = async (body, file) => {
     const [rows] = await conect.query("UPDATE perfiles SET ? WHERE ?", [
       {
         name,
+        email,
         edad,
         genero,
         caracteristica,
         telefono,
+        habilidades,
         estudios,
         titulo,
         trabajo,
@@ -36,7 +44,11 @@ const guardar = async (body, file) => {
         pais,
         provincia,
         domicilio,
+        estado,
+        linkedin,
+        nacionalidad,
         nacimiento,
+        redes,
       },
       { email },
     ]);
@@ -70,7 +82,20 @@ const findOne = async (params) => {
   }
 };
 
+const borrar = async (params)=>{
+  const {id} = params
+try {
+  const [user]= await conect.query("DELETE FROM perfiles WHERE ?", {id})
+  return user;
+} catch (error) {
+  throw error
+}finally{
+  conect.releaseConnection()
+}
+}
+
 module.exports = {
   guardar,
+  borrar,
   findOne,
 };

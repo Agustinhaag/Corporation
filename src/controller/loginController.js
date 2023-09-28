@@ -9,14 +9,15 @@ const register = (req, res) => {
 const createRegister = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    console.log(errors)
     res.render("login/register.ejs", {
       values: req.body,
       errors: errors.array(),
     });
   } else {
-    const data = await serviceLogin.createRegister(req.body);
+    const data = await serviceLogin.createRegister(req.body, req.file);
     req.session.user_id = data.id;
-    res.render("users/create.ejs", { values: data });
+    res.render("users/create.ejs", { values: data, errors: [], layout: "layout/private" });
   }
 };
 
@@ -42,7 +43,7 @@ const postLogin = async (req, res) => {
   }
 };
 
-const logout = () => {
+const logout = (req,res) => {
   req.session = null;
   res.redirect("/");
 };

@@ -9,8 +9,12 @@ const findOne = async(params)=>{
     const result = await modelo.findOne(params)
     return result
     }
-
+const borrar = async (params)=>{
+  const user = await modelo.borrar(params)
+  return user;
+}
 module.exports = {
 guardar,
+borrar,
 findOne,
 }
