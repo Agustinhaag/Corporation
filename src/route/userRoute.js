@@ -1,6 +1,7 @@
 const express = require("express");
 const route = express.Router();
 const { body } = require("express-validator");
+const path = require("path")
 const controller = require("../controller/userController.js");
 
 
@@ -35,41 +36,56 @@ const validar = [
   body("trabajo")
     .notEmpty()
     .withMessage("El campo trabajo no puede estar vacio"),
-  body("cv")
+    body("cv")
     .custom((value, { req }) => {
-      if (req.file.mimetype === "application/pdf") {
+      if (req.files && req.files.cv && req.files.cv[0].mimetype === "application/pdf") {
         return ".pdf";
       } else {
         return false;
       }
     })
-    .withMessage("Por favor envie un archivo .PDF"),
- 
+    .withMessage("Por favor envíe un archivo .PDF"),
+    body('image')
+    .custom((value, { req }) => {
+      if (req.files && req.files.image) {
+        const validImageMimeTypes = ["image/jpeg", "image/png", "image/gif"];
+        if (validImageMimeTypes.includes(req.files.image[0].mimetype)) {
+          return true;
+        }
+      }
+      return false;
+    })
+    .withMessage('Ingrese una imagen válida (jpg, jpeg, png, gif).'),
+
 ];
 
 const multer = require("multer");
 
-// const updateImg = multer({dest:"public/Uploads/img"})
-// const updatePDF = multer({dest:"public/Uploads/cv"})
-// route.post("/", updateImg.single("image") ,validar, controller.guardar);
-// route.post("/", updatePDF.single("cv") ,validar, controller.guardar);
-
-
-const storagecv = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "public/Uploads/cv"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    let destinationDir = '';
+    if (file.fieldname === 'image') {
+      destinationDir = 'public/Uploads/img';
+    } else if (file.fieldname === 'cv') {
+      destinationDir = 'public/Uploads/cv';
+    }
+    cb(null, destinationDir);
+  },
+  filename: (req, file, cb) => {
+    const extname = path.extname(file.originalname);
+    cb(null,  `${file.filename}-${Date.now()}${extname}`);
+  }
 });
 
-const cargar = multer({ storage: storagecv });
-
+const upload = multer({ storage });
 
 route.get("/create", controller.create);
-route.post("/", cargar.single("cv") ,validar, controller.guardar);
+route.post("/", upload.fields([{ name: 'image', maxCount: 1 }, { name: 'cv', maxCount: 1 }]) ,validar, controller.guardar);
 
 route.get("/perfil/:id", controller.perfil);
 
 route.get("/edit/:id", controller.edit);
-route.put("/",cargar.single("cv") ,validar, controller.update);
+route.put("/", upload.fields([{ name: 'image', maxCount: 1 }, { name: 'cv', maxCount: 1 }]),validar, controller.update);
 
 route.delete("/:id", controller.borrar);
 

@@ -9,13 +9,12 @@ const register = (req, res) => {
 const createRegister = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log(errors)
     res.render("login/register.ejs", {
       values: req.body,
       errors: errors.array(),
     });
   } else {
-    const data = await serviceLogin.createRegister(req.body, req.file);
+    const data = await serviceLogin.createRegister(req.body);
     req.session.user_id = data.id;
     res.render("users/create.ejs", { values: data, errors: [], layout: "layout/private" });
   }

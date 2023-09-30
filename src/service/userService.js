@@ -35,6 +35,16 @@ const update = async (body, file) => {
   if (file) {
     body.cv = file.filename;
   }
+
+  if (file && row.image) {
+    if (fs.existsSync(`public/Uploads/img/${row.image}`)) {
+      fs.unlinkSync(`public/Uploads/img/${row.image}`);
+    }
+  }
+  body.image = row.image;
+  if (file) {
+    body.image = file.filename;
+  }
   const result = await modelo.update(body, file);
   return result;
 };

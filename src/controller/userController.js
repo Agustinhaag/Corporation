@@ -8,13 +8,13 @@ const create = (req, res) => {
 const guardar = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log(errors);
     return res.render("users/create", {
       values: req.body,
       errors: errors.array(),
-    });
+     
+    })
   }
-  const data = await service.guardar(req.body, req.file);
+  const data = await service.guardar(req.body, req.files);
   res.render("users/sucess.ejs", { values: data });
 };
 
@@ -39,10 +39,9 @@ const update = async (req, res) => {
       errors: errors.array(),
     });
   }
-  const data = await service.update(req.body, req.file);
+  const data = await service.update(req.body, req.files);
 
-      res.render("users/perfil.ejs", { data });
-  
+  res.render("users/perfil.ejs", { data});
 };
 
 const borrar = async (req, res) => {
@@ -58,7 +57,7 @@ const sucess = (req, res) => {
 const perfil = async (req, res) => {
   const data = await service.findOne(req.params);
   res.render("users/perfil.ejs", {
-    data,
+    data,  layout: "layout/private" 
   });
 };
 

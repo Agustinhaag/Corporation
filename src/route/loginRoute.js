@@ -6,15 +6,6 @@ const controller = require("../controller/loginController");
 
 const validacion = [
   body("name").notEmpty().withMessage("El campo nombre no puede estar vacio"),
-  body("image")
-    .custom((value, { req }) => {
-      if (req.file) {
-        return "exito";
-      } else {
-        return false;
-      }
-    })
-    .withMessage("Ingrese una foto de perfil"),
   body("surname")
     .notEmpty()
     .withMessage("El campo apellido no puede estar vacio"),
@@ -54,18 +45,11 @@ const validacion = [
     .withMessage("Debe aceptar los términos y condiciones"),
 ];
 
-const multer = require("multer");
-const storageImg = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "public/Uploads/img"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
-});
 
-const cargar = multer({ storage: storageImg });
 
 route.get("/register", controller.register);
 route.post(
   "/register",
-  cargar.single("image"),
   validacion,
   controller.createRegister
 );

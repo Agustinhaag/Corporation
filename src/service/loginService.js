@@ -1,9 +1,9 @@
 const bcryptjs = require("bcryptjs");
 const modelo = require("../model/loginModel");
 
-const createRegister = async (body, file) => {
+const createRegister = async (body) => {
   body.password = await bcryptjs.hash(body.password, 8);
-  const rows = await modelo.createRegister(body, file);
+  const rows = await modelo.createRegister(body);
   return rows;
 };
 

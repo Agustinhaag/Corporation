@@ -325,7 +325,8 @@
             />
           </div>
         </div>
-        <div class="container-data">
+        <div class="container-input">
+          <div class="container-info">
           <label for="cv">Curriculum:</label>
           <input
             type="file"
@@ -341,6 +342,24 @@
             </div>
         <% } %>
         </div>
+        <div class="container-info">
+          <label for="image">Foto de perfil:</label>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            class="input-file <%= errors && errors.find(error => error.path === 'image') ? 'is-invalid' : '' %>"
+            accept="image/*"
+          />
+          <% if (typeof errors !== "undefined") { %>
+            <% const imageError = errors.find(error => error.path === 'image'); %>
+            <div class="invalid-feedback">
+               <%= imageError ? imageError.msg : '' %>
+            </div>
+        <% } %>
+        </div>
+        </div>
+        
         <div class="container-btn">
           <button class="btn btn-outline-light" type="submit">Crear</button>
         </div>

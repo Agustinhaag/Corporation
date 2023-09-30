@@ -5,7 +5,8 @@ const moment = require("moment");
 const guardar = async (body, file) => {
   let edad = parseInt(body.edad);
   let telefono = parseInt(body.telefono);
-  let cv = file ? file.filename : null;
+  let cv = file.cv ? file.cv[0].filename : null;
+  let image = file.image ? file.image[0].filename : null;
   let descripcion = body.descripcion ? body.descripcion : null;
   let habilidades = body.habilidades ? body.habilidades : null;
   let redes = body.redes ? body.redes : null;
@@ -46,6 +47,7 @@ const guardar = async (body, file) => {
         civil,
         estado,
         linkedin,
+        image,
         nacionalidad,
         nacimiento,
         redes,
@@ -85,7 +87,8 @@ const findOne = async (params) => {
 const update = async(body,file)=>{
   let edad = parseInt(body.edad);
   let telefono = parseInt(body.telefono);
-  let cv = file ? file.filename : null;
+  let cv = file.cv ? file.cv[0].filename : null;
+  let image = file.image ? file.image[0].filename : null;
   let descripcion = body.descripcion ? body.descripcion : null;
   let habilidades = body.habilidades ? body.habilidades : null;
   let redes = body.redes ? body.redes : null;
@@ -125,6 +128,7 @@ const update = async(body,file)=>{
         pais,
         provincia,
         civil,
+        image,
         estado,
         linkedin,
         nacionalidad,
