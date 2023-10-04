@@ -1,0 +1,118 @@
+
+.container-gral{
+   padding-top: 80px;
+   background-image: url(../Img/fondo-create2.png);
+    background-size: cover;
+    padding-bottom: 10px;
+    background-position: center;
+}
+.container-gral .container-column{
+    display: flex;
+    width: 100%;
+    padding: 15px 0 ;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.562);
+}
+.container-gral .container-seccion{
+    width: 48%;
+    color: rgb(49, 49, 49);
+}
+.container-seccion:nth-child(1){
+    margin-left: 15px;
+}
+.container-gral .container-seccion .container-img{
+    width: 55%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: none;
+}
+.container-gral .container-seccion .container-img img{
+    width: 96%;
+    height: 96%;
+    border-radius: 100% ;
+}
+.container-gral .container-seccion h1{
+    font-size: 28px;
+    margin: 15px 0 30px 0;
+    color: rgb(49, 49, 49);
+    text-transform: capitalize;
+}
+.container-gral .container-seccion h3{
+    font-size: 21px;
+    font-weight: normal;
+    color: white;
+    text-decoration:  underline 1px black;
+    text-underline-offset: 4px;
+}
+.container-gral .container-seccion ul{
+    list-style: none;
+    padding: 0;
+    color: rgb(49, 49, 49);
+}
+.container-gral .container-seccion ul li{
+    margin: 13px 0;
+}
+.container-gral .container-seccion ul li i {
+    margin-right: 8px;
+    font-size: 23px;
+    color: rgba(51, 82, 218, 0.863);
+}
+.container-gral .container-seccion .presentacion, .container-gral .container-seccion .habilidades p{
+    width: 90%;
+}
+.container-gral .container-seccion .presentacion p{
+    margin-top: 13px;
+}
+.container-gral .container-seccion .contacto .redes{
+    display: flex;
+    width: 33%;
+    justify-content: space-between;
+}
+.container-gral .container-seccion .contacto .redes a{
+    font-size: 25px;
+    margin: 5px 0 30px 0;
+}
+.redes a:nth-child(1){
+    color: rgb(59, 194, 194);
+}
+.redes a:nth-child(3){
+    color: rgb(19, 100, 3);
+}
+.redes a:nth-child(4){
+    color: rgb(70, 70, 70);
+}
+.container-gral .container-seccion .cv{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.cv a{
+    width: 30%;
+}
+.subtitle{
+    font-size: 17px;
+color: aliceblue;
+}
+.div ul li{
+    text-transform: capitalize;
+}
+.div ul li span, .div p span{
+    color: rgb(83, 83, 83);
+    margin-right: 5px;
+    font-weight: 700;
+}
+.container-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-btns a, .container-btns form button{
+    font-size: 20px;
+}
+.container-btns form button{
+    color: red;
+}

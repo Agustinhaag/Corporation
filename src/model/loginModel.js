@@ -2,7 +2,7 @@
 const { conect } = require("../conect/conect");
 
 const createRegister = async (body) => {
-  const name = body.name + body.surname
+  const name = body.name + ' ' + body.surname
   const { email, password } = body;
   try {
     const [rows] = await conect.query("INSERT INTO perfiles SET ?", {
@@ -28,6 +28,7 @@ const postLogin = async(req)=>{
     const {email}= req.body;
 try {
     const [row] = await conect.query("SELECT * FROM perfiles WHERE ?", {email});
+    console.log(row)
     return row;
 } catch (error) {
     throw error

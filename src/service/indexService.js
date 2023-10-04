@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const modelo = require("../model/indexModel")
 
 const postEmail = async (body) => {
   const { name, email, telefono, date, mensaje } = body;
@@ -32,6 +33,12 @@ const postEmail = async (body) => {
 
 };
 
+const findAll = async ()=>{
+  const rows = await modelo.findAll()
+  return rows
+}
+
 module.exports = {
   postEmail,
+  findAll,
 };

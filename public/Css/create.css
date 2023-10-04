@@ -60,6 +60,7 @@ input[type="file"] {
 }
 .container-gral form .container-form .container-btn{
     justify-content: center;
+    margin-top: 20px;
     display: flex;
 }
 input::placeholder, textarea::placeholder{
@@ -73,6 +74,11 @@ input::placeholder, textarea::placeholder{
 .is-invalid#nacimiento{
     background-image: none !important;
 }
+.container-input .container-info a{
+    width: 20%;
+    min-width: 100px;
+}
+
 @media(max-width:768px){ 
     .container-gral form .container-form .container-input{
         flex-direction: column;

@@ -41,6 +41,18 @@
             <% } %>
           </div>
         </div>
+        <div class="container-data">
+          <label for="descripcion">Carta de presentación:</label>
+          <textarea
+            placeholder="Descripción"
+            name="descripcion"
+            id="descripcion"
+            cols="20"
+            rows="5"
+          >
+<%=values.descripcion%></textarea
+          >
+        </div>
         <div class="container-input">
           <div class="container-info">
             <label for="email">Email:</label>
@@ -187,6 +199,16 @@
         <% } %>
         </div>
         <div class="container-data">
+<label for="cursos">Cursos y capacitaciones</label>
+<textarea placeholder="Cursos y capacitaciones" name="cursos" id="" cols="30" rows="10"  class=" form-control  <%= errors && errors.find(error => error.path === 'cursos') ? 'is-invalid' : '' %>"><%=values.cursos%></textarea>
+<% if (typeof errors !== "undefined") { %>
+  <% const cursosError = errors.find(error => error.path === 'cursos'); %>
+  <div class="invalid-feedback">
+     <%= cursosError ? cursosError.msg : '' %>
+  </div>
+<% } %>
+        </div>
+        <div class="container-data">
           <label for="estudios">Nivel de estudios alcanzados:</label>
           <select name="estudios" id="estudios" class=" form-control  <%= errors && errors.find(error => error.path === 'estudios') ? 'is-invalid' : '' %>">
             <option value="" disabled selected>Selecciona una opción</option>
@@ -208,7 +230,7 @@
           <div class="container-info">
             <label for="estado">Estado del nivel académico:</label>
             <select name="estado" id="" class=" form-control  <%= errors && errors.find(error => error.path === 'estado') ? 'is-invalid' : '' %>">
-                <option value="" disabled selected>Selecciona una opción</option>
+              <option value="" disabled selected>Selecciona una opción</option>
               <option value="En curso">En curso</option>
               <option value="Graduado">Graduado</option>
               <option value="Abandonado">Abandonado</option>
@@ -220,37 +242,6 @@
               </div>
           <% } %>
           </div>
-          <div class="container-info">
-            <label for="nacionalidad">Nacionalidad:</label>
-            <input
-              type="text"
-              placeholder="Nacionalidad"
-              name="nacionalidad"
-              id="nacionalidad"
-              class=" form-control  <%= errors && errors.find(error => error.path === 'nacionalidad') ? 'is-invalid' : '' %>"
-              value="<%=values.nacionalidad%>"
-            />
-            <% if (typeof errors !== "undefined") { %>
-              <% const nacionalidadError = errors.find(error => error.path === 'nacionalidad'); %>
-              <div class="invalid-feedback">
-                 <%= nacionalidadError ? nacionalidadError.msg : '' %>
-              </div>
-          <% } %>
-          </div>
-        </div>
-        <div class="container-data">
-          <label for="habilidades">Habilidades:</label>
-          <textarea
-            placeholder="Habilidades"
-            name="habilidades"
-            id="habilidades"
-            cols="20"
-            rows="5"
-          >
-<%=values.habilidades%></textarea
-          >
-        </div>
-        <div class="container-input">
           <div class="container-info">
             <label for="titulo">Título:</label>
             <input
@@ -268,11 +259,76 @@
               </div>
           <% } %>
           </div>
+        </div>
+        <div class="container-data">
+          <label for="estudios2">Segunda formación academica:</label>
+          <select name="estudios2" id="estudios2" class="form-control">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="curso">Curso/Bootcamp</option>
+            <option value="secundario">Secundario</option>
+            <option value="terciario">Terciario</option>
+            <option value="universitario">Universitario</option>
+            <option value="postgrado">Postgrado</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="container-input">
           <div class="container-info">
-            <label for="trabajo">Puesto actual:</label>
+            <label for="estado">Estado de nivel académico:</label>
+            <select name="estado2" id="" class=" form-control">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="En curso">En curso</option>
+              <option value="Graduado">Graduado</option>
+              <option value="Abandonado">Abandonado</option>
+            </select>
+          </div>
+          <div class="container-info">
+            <label for="titulo">Título:</label>
             <input
               type="text"
-              placeholder="Trabajo"
+              placeholder="Título"
+              name="titulo2"
+              id="titulo2"
+              value="<%=values.titulo2%>"
+              class=" form-control"
+            />
+          </div>
+        </div>
+        <div class="container-data">
+          <label for="habilidades">Habilidades:</label>
+          <textarea
+            placeholder="Habilidades"
+            name="habilidades"
+            id="habilidades"
+            cols="20"
+            rows="5"
+          >
+<%=values.habilidades%></textarea
+          >
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="secundario">Título Secundario:</label>
+            <input
+              type="text"
+              placeholder="Título ssecundario"
+              name="secundario"
+              id="secundario"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'secundario') ? 'is-invalid' : '' %>"
+              value="<%=values.secundario%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const secundarioError = errors.find(error => error.path === 'secundario'); %>
+              <div class="invalid-feedback">
+                 <%= secundarioError ? secundarioError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+          <div class="container-info">
+            <label for="trabajo">Primer experiencia laboral:</label>
+            <input
+              type="text"
+              placeholder="1er Trabajo"
               name="trabajo"
               class=" form-control  <%= errors && errors.find(error => error.path === 'trabajo') ? 'is-invalid' : '' %>"
               value="<%=values.trabajo%>"
@@ -285,16 +341,120 @@
           <% } %>
           </div>
         </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="empleador">Empleador:</label>
+            <input
+              type="text"
+              placeholder="Empleador"
+              name="empleador"
+              id="empleador"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'empleador') ? 'is-invalid' : '' %>"
+              value="<%=values.empleador%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const empleadorError = errors.find(error => error.path === 'empleador'); %>
+              <div class="invalid-feedback">
+                 <%= empleadorError ? empleadorError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+          <div class="container-info">
+            <label for="posicion"> Posicion laboral:</label>
+            <select name="posicion" id="" class=" form-control  <%= errors && errors.find(error => error.path === 'posicion') ? 'is-invalid' : '' %>">
+              <option value="" disabled selected> Seleccione una opción</option>
+              <option value="Trainne">trainne</option>
+              <option value="Junior">Junior</option>
+              <option value="Semi-senior">Semi-senior</option>
+              <option value="Senior">Senior</option>
+            </select>
+            <% if (typeof errors !== "undefined") { %>
+              <% const posicionError = errors.find(error => error.path === 'posicion'); %>
+              <div class="invalid-feedback">
+                 <%= posicionError ? posicionError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+        </div>
         <div class="container-data">
-          <label for="descripcion">Carta de presentación:</label>
+          <label for="descripcionLaboral">Descripción del puesto:</label>
           <textarea
-            placeholder="Descripción"
-            name="descripcion"
-            id="descripcion"
+            placeholder="Descripcion laboral"
+            name="descripcionLaboral"
+            id="descripcionLaboral"
+            cols="20"
+            class=" form-control  <%= errors && errors.find(error => error.path === 'descripcionLaboral') ? 'is-invalid' : '' %>"
+            rows="5"
+          >
+<%=values.descripcionLaboral%></textarea>
+          <% if (typeof errors !== "undefined") { %>
+            <% const descripcionLaboralError = errors.find(error => error.path === 'descripcionLaboral'); %>
+            <div class="invalid-feedback">
+               <%= descripcionLaboralError ? descripcionLaboralError.msg : '' %>
+            </div>
+        <% } %>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="nacionalidad">Nacionalidad:</label>
+            <input
+              type="text"
+              placeholder="Nacionalidad"
+              name="nacionalidad"
+              id="nacionalidad"
+              class=" form-control  <%= errors && errors.find(error => error.path === 'nacionalidad') ? 'is-invalid' : '' %>"
+              value="<%=values.nacionalidad%>"
+            />
+            <% if (typeof errors !== "undefined") { %>
+              <% const nacionalidadError = errors.find(error => error.path === 'nacionalidad'); %>
+              <div class="invalid-feedback">
+                 <%= nacionalidadError ? nacionalidadError.msg : '' %>
+              </div>
+          <% } %>
+          </div>
+          <div class="container-info">
+            <label for="puesto2">Segunda experiencia laboral:</label>
+            <input
+              type="text"
+              placeholder=" 2do Trabajo"
+              name="puesto2"
+              class=" form-control"
+            />
+          </div>
+        </div>
+        <div class="container-input">
+          <div class="container-info">
+            <label for="empleador2">Empleador:</label>
+            <input
+              type="text"
+              placeholder="Empleador"
+              name="empleador2"
+              id="empleador2"
+              class=" form-control"
+              value="<%=values.empleador2%>"
+            />
+          </div>
+          <div class="container-info">
+            <label for="posicion2"> Posicion laboral:</label>
+            <select name="posicion2" id="" class=" form-control">
+              <option value="" disabled selected> Seleccione una opción</option>
+              <option value="Trainne">trainne</option>
+              <option value="Junior">Junior</option>
+              <option value="Semi-senior">Semi-senior</option>
+              <option value="Senior">Senior</option>
+            </select>
+          </div>
+        </div>
+        <div class="container-data">
+          <label for="descripcionLaboral2">Descripción del puesto:</label>
+          <textarea
+            placeholder="Descripcion laboral"
+            name="descripcionLaboral2"
+            id="descripcionLaboral2"
             cols="20"
             rows="5"
           >
-<%=values.descripcion%></textarea
+<%=values.descripcionLaboral2%></textarea
           >
         </div>
         <div class="container-input">
@@ -302,7 +462,7 @@
             <label for="linkedin">Perfil de linkedin:</label>
             <input
               type="text"
-              placeholder="Título"
+              placeholder="Linkedin"
               name="linkedin"
               id="linkedin"
               class=" form-control  <%= errors && errors.find(error => error.path === 'linkedin') ? 'is-invalid' : '' %>"
@@ -359,7 +519,15 @@
         <% } %>
         </div>
         </div>
-        <input type="text" hidden name="id" value="<%=values.id%>">
+        <div class="container-input">
+          <div class="container-info">
+            <a download="CV de <%=values.name%>" class="btn btn-outline-secondary" href="Uploads/cv/<%=values.cv%>">Ver cv</a>
+          </div>
+          <div class="container-info">
+            <img src="Uploads/img/<%=values.image%>" width="140" height="100" alt="<%=values.name%>">
+          </div>
+        </div>
+        <input type="hidden" name="id" value="<%=values.id%>">
         <div class="container-btn">
           <button class="btn btn-outline-light" type="submit">Editar</button>
         </div>

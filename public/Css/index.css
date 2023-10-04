@@ -70,7 +70,7 @@ footer p{
 }
 
 main{
-    min-height: 90vh;
+    min-height: 94vh;
     height: 100%;
 }
 @media(max-width:768px){  

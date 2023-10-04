@@ -9,8 +9,8 @@ const findOne = async (params) => {
   const result = await modelo.findOne(params);
   return result;
 };
-const borrar = async (params) => {
-    const row = await modelo.findOne(body);
+const borrar = async (params, file) => {
+    const row = await modelo.findOne(params);
     if (file && row.cv) {
       if (fs.existsSync(`public/Uploads/cv/${row.cv}`)) {
         fs.unlinkSync(`public/Uploads/cv/${row.cv}`);
@@ -26,7 +26,7 @@ const borrar = async (params) => {
 };
 const update = async (body, file) => {
   const row = await modelo.findOne(body);
-  if (file && row.cv) {
+  if (file && row.cv ) {
     if (fs.existsSync(`public/Uploads/cv/${row.cv}`)) {
       fs.unlinkSync(`public/Uploads/cv/${row.cv}`);
     }

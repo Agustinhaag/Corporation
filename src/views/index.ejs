@@ -11,26 +11,17 @@
     <section id="personas">
         <h3>Conoce a algunos de nuestros talentos</h3>
         <div class="container-card">
-<div class="perfil">
-                <img src="Img/yo.jpg" alt="" class="img">
-                <h4>Agustin Haag</h4>
-                <p>Técnico superior en programación, futuro software developer.</p>
-                 <button class="boton">Saber más</button>
-            </div>
+            <%users.forEach(user=>{ %>
             <div class="perfil">
-                <img src="Img/mujer.jpg" alt="" class="img">
-                <h4>Lourdes Tobares</h4>
-                <p>Profesional en marketing digital, community manager y redes sociales.</p>
-                 <button class="boton">Saber más</button>
+                <img src="Uploads/img/<%=user.image%>" alt="<%=user.name%>" class="img">
+                <h4><%=user.name%></h4>
+                <p><%=user.titulo%>, <%=user.titulo2%>.</p>
+                 <a href="/user/perfil/<%=user.id%>" class="boton">Saber más</a>
             </div>
-            <div class="perfil">
-                <img src="Img/hombre.jpg" alt="" class="img">
-                <h4>Max Spilberg</h4>
-                <p> Maestría en Data analisty: profesional en análisis y manejo de datos </p>
-                 <button class="boton">Saber más</button>
-            </div>
-    </div>
+            <%})%>
             
+          
+    </div>
     </section>
     <section id="caracteristicas">
           <div class="contenedoricon">

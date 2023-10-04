@@ -1,0 +1,23 @@
+<title>Nosotros</title>
+<link rel="stylesheet" href="Css/talents.css" />
+<main>
+  <div class="container-gral">
+    <h2>Nuestros talentos</h2>
+    <div class="container-card">
+        <%rows.forEach(row=>{ %>
+            <div class="card" >
+                <img src="Uploads/img/<%=row.image%>" class="card-img-top" alt="<%=row.name%>" width="150">
+                <div class="card-body">
+                  <h5 class="card-title"><%=row.name%></h5>
+                  <p class="card-text"><span>Título:</span> <%=row.titulo%></p>
+                  <p class="card-text"><span>Trabajo actual:</span> <%=row.trabajo%></p>
+                  <p class="card-text"><%=row.descripcion%>.</p>
+                  <div class="container-btn">
+                    <a href="/user/perfil/<%=row.id%>" >Saber más</a>
+                  </div>
+                </div>
+              </div>
+       <% })%>
+    </div>
+  </div>
+</main>

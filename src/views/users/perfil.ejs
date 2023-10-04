@@ -1,12 +1,118 @@
 <title><%=data.name%></title>
-
+<link rel="stylesheet" href="Css/perfil.css" />
 <main>
-   <h2><%=data.email%></h2>
-<h2><%=data.name%></h2>
-<a href="/user/edit/<%=data.id%>">editar</a>
-<form action="/user/<%=data.id%>?_method=DELETE" method="post" class="form-delete">
-   <button type="submit" class="btn"><i class="fa-solid fa-trash-can"></i></button>
-</form>
+  <section class="container-gral">
+    <div class="container-column">
+      <div class="container-seccion">
+         <div class="container-img">
+             <img src="Uploads/img/<%=data.image%>" alt="<%=data.name%>" />
+         </div>
+        <h1><%=data.name%></h1>
+        <div class="datos">
+          <h3>Datos personales:</h3>
+          <ul>
+            <li><i class="fa-solid fa-cake-candles"></i><%=data.edad%> Años</li>
+            <li>
+              <i class="fa-solid fa-calendar-days"></i><%=fechaFormateada%>
+            </li>
+            <li><i class="fa-solid fa-user"></i><%=data.genero%></li>
+            <li><i class="fa-solid fa-person"></i><%=data.civil%></li>
+            <li>
+              <i class="fa-solid fa-earth-americas"></i><%=data.nacionalidad%>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i><%=data.provincia%>,
+              <%=data.pais%>
+            </li>
+          </ul>
+          <div class="presentacion">
+            <h3>Carta de presentación:</h3>
+            <p><%=data.descripcion%></p>
+          </div>
+        </div>
+        <div class="habilidades">
+         <h3>Habilidades:</h3>
+         <p><%=data.habilidades%></p>
+       </div>
+        <div class="contacto">
+          <h3>Contactame:</h3>
+          <div class="redes">
+            <a href="mailto:<%=data.email%>"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+            <a href="<%=data.linkedin%>"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="tel:<%=data.telefono%>"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
+            <a href="<%=data.redes%>"
+              ><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+        <div class="cv">
+         <a download="CV de <%=data.name%>" class="btn btn-outline-success" href="Uploads/cv/<%=data.cv%>"
+           >CV</a
+         >
+       </div>
+      </div>
+      <div class="container-seccion">
+        <div class="div">
+          <h3>Información academica:</h3>
+          <p><span>Secundario:</span> <%=data.secundario%></p>
+          <ul>
+            <p class="subtitle">Primer antecedente:</p>
+            <li><span>Nivel alcanzado:</span><%=data.estudios%></li>
+            <li> <span>Título:</span><%=data.titulo%></li>
+            <li> <span>Estado:</span><%=data.estado%></li>
+            <%if(data.estudios2 && data.titulo2 && data.estado2){ %>
+            <p class="subtitle">Segundo antecedente:</p>
+            <li><span>Nivel alcanzado:</span><%=data.estudios2%></li>
+            <li><span>Título:</span><%=data.titulo2%></li>
+            <li><span>Estado:</span><%=data.estado2%></li>
+            <%}%>
+          </ul>
+        </div>
+        <div class="cursos">
+         <h3>Cursos y capacitaciones:</h3>
+          <p><%=data.cursos%></p>
+        </div>
+        <div class="div">
+          <h3>Experiencia laboral:</h3>
+          <ul>
+            <p class="subtitle">Primer experiencia:</p>
+            <li><span>Puesto:</span><%=data.trabajo%></li>
+            <li><span>Empleador:</span><%=data.empleador%></li>
+            <li><span>Posición:</span><%=data.posicion%></li>
+            <li><span>Descripción:</span><%=data.descripcionLaboral%></li>
+
+            <%if(data.puesto2 && data.descripcionLaboral2 && data.empleador2 &&
+            data.posicion2){ %>
+            <p class="subtitle">Segunda experiencia:</p>
+            <li><span>Puesto:</span><%=data.puesto2%></li>
+            <li><span>Empleador:</span><%=data.empleador2%></li>
+            <li><span>Posición:</span><%=data.posicion2%></li>
+            <li><span>Descripción:</span><%=data.descripcionLaboral2%></li>
+            <%}%>
+          </ul>
+        </div>
+      </div>
+      <div class="container-btns">
+        <a href="/user/edit/<%=data.id%>"><i class="fa-solid fa-pen"></i></a>
+        <form
+          action="/user/<%=data.id%>?_method=DELETE"
+          method="post"
+          class="form-delete"
+        >
+          <button type="submit" class="btn">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 <script defer src="Js/users.js"></script>
+
+
