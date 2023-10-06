@@ -7,6 +7,10 @@
   justify-content: center;
   display: flex;
   color: white;
+  z-index: 500;
+  position: relative;
+  opacity: 1;
+  transition: opacity 3s ease;
   width: 70%;
   flex-direction: column;
  height: 100%;
@@ -23,7 +27,57 @@
    font-style: italic;
     text-transform: capitalize;
 }
-
+.container-banner.hide{
+    position: absolute;
+    z-index: -1;
+    transition: opacity 3s ease;
+    opacity: 0;
+}
+#banner .return{
+    display: flex;
+  position: absolute;
+  z-index: -1;
+  transition: opacity 1.5s e;
+  opacity: 0;
+  min-width: 50%;
+  color: white;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+#banner .return.view{
+    opacity: 1;
+    position: relative;
+    transition: opacity 1.5s ease;
+    z-index: 500;
+}
+#banner .return h2{
+font-size: 40px;
+margin: 20px 0;
+text-decoration: 2px underline rgb(123, 228, 228);
+text-underline-offset: 3px;
+}
+#banner .return p{
+    font-weight: 600;
+}
+#banner .return p .corp{
+    color:rgb(123, 228, 228) ;
+    font-size: 26px;
+}
+#banner .return .container-p{
+    text-align: left;
+}
+#banner .return p .talent{
+    font-weight: 800;
+    font-size: 16px;
+}
+#banner .return .cont-return-btn{
+    display: flex;
+    min-width: 170px;
+    width: 21%;
+    margin: 20px auto 0 auto;
+    justify-content: space-between;
+}
 .btnempezar{
     background: none;
     border: 1px rgb(123, 228, 228) solid;
@@ -105,15 +159,17 @@ font-size: 23px;
     padding: 50px 50px 0 50px;
     text-align: center;
 }
-.contenedoricon div h3{
+.contenedoricon .card-icon h3{
     color: aliceblue;
     text-align: center;
     padding-bottom: 4%; 
     text-transform: capitalize;
     font-size: 21px;
 }
-.contenedoricon div i{
+.contenedoricon .card-icon i{
     font-size: 50px;
+    color: rgb(78, 152, 152);
+    padding-bottom: 5%;
 }
  .contenedorbtn {
 text-align: center;
@@ -123,21 +179,33 @@ padding:0 0 3% 0;
     color: rgb(205, 209, 209);
     padding: 1% 3% 1% 3%;
 }
-.contenedoricon div{
+.contenedoricon .card-icon{
     border-right: 2px  rgb(193, 192, 192) solid;
     flex: 1;
   margin: 20px 0px 10px 0px;
 }
-.contenedoricon div p{
+.contenedoricon .card-icon p{
     color: rgb(198, 197, 197);
-}
-.contenedoricon div i{
-    color: rgb(78, 152, 152);
-    padding-bottom: 5%;
 }
 .contenedoricon #iconmobile{
     border: none;
 }
+
+.contenedoricon .card-icon .contenidoOculto{
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+     flex-grow: 0;
+     width: 95%;
+    padding: 0;
+    margin: 20px auto 0 auto;
+  }
+  .contenedoricon .card-icon .contenidoOculto p{
+text-align: center;
+color: aliceblue;
+  }
+
 #form{
     background: rgb(88, 171, 171);
     padding: 10px 0;
@@ -234,6 +302,31 @@ form .btnform{
 }
 
 @media(max-width:768px){  
+    #banner{
+        padding: 0 15px !important;
+    }
+    #banner .return{
+        margin: 70px 0 20px 0;
+    }
+    #banner .return h2{
+        font-size: 30px;
+    }
+    #banner .return p{
+       font-size: 14px;
+    }
+    #banner .return p .corp{
+        font-size: 20px;
+    }
+    #banner .return .container-p{
+        text-align: left;
+    }
+    #banner .return p .talent{
+        font-weight: 800;
+        font-size: 16px;
+    }
+    #banner .return .cont-return-btn{
+
+    }
     #personas{
       padding-bottom: 20px;
     }
