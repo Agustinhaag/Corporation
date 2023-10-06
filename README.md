@@ -1,1 +1,1 @@
-![Captura web_21-9-2023_224714_localhost](https://github.com/Agustinhaag/Corporation/assets/122823252/372cc5b9-0456-4800-8a69-8649f160199a)
+![Captura web_6-10-2023_184211_localhost](https://github.com/Agustinhaag/Corporation/assets/122823252/0dbde723-dd94-4901-9d52-88f5850df6f7)
